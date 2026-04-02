@@ -196,8 +196,8 @@
             aspect-ratio: 16/9;
             background: #000;
         }
-        .fv-iframe-wrap iframe {
-            position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block;
+        .fv-iframe-wrap iframe, .fv-iframe-wrap video {
+            position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; object-fit: cover;
         }
         .fv-meta {
             padding: 28px 20px 18px;
@@ -239,8 +239,8 @@
             position: relative; width: 100%; aspect-ratio: 16/9;
             background: var(--ink); overflow: hidden;
         }
-        .vcard-thumb iframe {
-            position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block;
+        .vcard-thumb iframe, .vcard-thumb video {
+            position: absolute; inset: 0; width: 100%; height: 100%; border: none; display: block; object-fit: cover;
         }
         .vcard-body { padding: clamp(18px,2.5vw,28px); }
         .vtag {
@@ -361,9 +361,9 @@
             </div>
             <div class="fv-meta">
                 <div>
-                    <div class="fv-tag">Flagship Session</div>
+                    <div class="fv-tag">Global Masterclass</div>
                     <h3 class="fv-title">Leadership Transformation Masterclass</h3>
-                    <p class="fv-desc">Developing the mindset required for next-generation organizational agility and executive presence. From behavioral awareness to irreversible action — this session redefines what it means to lead.</p>
+                    <p class="fv-desc">Developing the mindset required for next-generation organizational agility and executive presence. From behavioral awareness to irreversible action — this session redefines what it means to lead on a global stage.</p>
                 </div>
                 <div class="fv-badge"><i class="fas fa-star"></i> Featured</div>
             </div>
@@ -377,7 +377,7 @@
         <div style="margin-bottom:44px;">
             <div class="eyebrow rev">More Sessions</div>
             <div class="rule rev" style="margin-top:14px;margin-bottom:0;"></div>
-            <h2 class="hd rev" style="margin-top:18px;">Explore the <em>Conversations.</em></h2>
+            <h2 class="hd rev" style="margin-top:18px;">YouTube <em>Keynotes.</em></h2>
         </div>
         <div class="vgrid">
 
@@ -388,7 +388,7 @@
                 <div class="vcard-body">
                     <span class="vtag">Technology & Learning</span>
                     <h4>AI Revolution in L&D</h4>
-                    <p>Exploring how emerging technologies enhance leadership diagnostics and behavioral tracking at organizational scale.</p>
+                    <p>Exploring how emerging technologies enhance leadership diagnostics and behavioral tracking at organizational scale across global teams.</p>
                 </div>
             </div>
 
@@ -398,8 +398,57 @@
                 </div>
                 <div class="vcard-body">
                     <span class="vtag">Behavioral Science</span>
-                    <h4>Behavioral Frameworks for Real-World Impact</h4>
-                    <p>Structured interactive learning methods that force mindset shifts — from intellectual awareness to lived behavioral ownership.</p>
+                    <h4>Behavioral Frameworks for Impact</h4>
+                    <p>Structured interactive learning methods that force mindset shifts — from intellectual awareness to lived behavioral ownership on the ground.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LOCAL VIDEOS SECTION -->
+        <div style="margin:80px 0 44px;">
+            <div class="eyebrow rev">Exclusive Highlights</div>
+            <div class="rule rev" style="margin-top:14px;margin-bottom:0;"></div>
+            <h2 class="hd rev" style="margin-top:18px;">Local <em>Masterclasses.</em></h2>
+        </div>
+
+        <div class="vgrid">
+            <div class="vcard rev">
+                <div class="vcard-thumb">
+                    <video controls poster="../images/img2.jpg">
+                        <source src="../images/video1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="vcard-body">
+                    <span class="vtag">Workshop Feedback</span>
+                    <h4>3-Day Workshop Mastery</h4>
+                    <p><strong>Effective Teaching, Clear Concepts & High Participant Satisfaction.</strong> Watch authentic feedback from participants highlighting the impact of our structured learning approach and measurable outcomes.</p>
+                </div>
+            </div>
+
+            <div class="vcard rev d1">
+                <div class="vcard-thumb">
+                    <video controls poster="../images/img3.jpg">
+                        <source src="../images/video2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="vcard-body">
+                    <span class="vtag">Skill Training</span>
+                    <h4>Group Discussion Training</h4>
+                    <p><strong>Improve Confidence, Communication & GD Skills.</strong> Showcasing our approach to structured GD etiquette, one-to-one interaction, and effective time management for competitive environments.</p>
+                </div>
+            </div>
+
+            <div class="vcard rev d2">
+                <div class="vcard-thumb">
+                    <video controls poster="../images/img8.jpeg">
+                        <source src="../images/video3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="vcard-body">
+                    <span class="vtag">Interactive Labs</span>
+                    <h4>Presentation Skills Mastery</h4>
+                    <p><strong>Boost Confidence, Creativity & Engagement.</strong> Interactive activities designed to keep participants attentive and creative, enabling them to express ideas confidently on any stage.</p>
                 </div>
             </div>
 
@@ -442,17 +491,17 @@
             </div>
             <div class="fcol">
                 <h6>Connect</h6>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin" style="margin-right:9px;"></i>LinkedIn</a>
-                <a href="https://wa.me/916300405352" target="_blank"><i class="fab fa-whatsapp" style="margin-right:9px;"></i>WhatsApp</a>
-                <a href="contact.html"><i class="fas fa-envelope" style="margin-right:9px;"></i>Email</a>
+                <a href="https://www.linkedin.com/in/drkc" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" style="margin-right:9px;"></i>LinkedIn</a>
+                <a href="https://wa.me/916300405352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right:9px;"></i>WhatsApp</a>
+                <a href="mailto:connect@learningwithoutwalls.in?subject=Website%20Inquiry"><i class="fas fa-envelope" style="margin-right:9px;"></i>Email</a>
             </div>
         </div>
         <div class="fbot">
             <p>&copy; 2026 Dr. Krishnan Chandrasekharan. All rights reserved.</p>
             <div class="fsoc">
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/916300405352" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="contact.html"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/drkc" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/916300405352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:connect@learningwithoutwalls.in?subject=Website%20Inquiry"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </div>

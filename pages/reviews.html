@@ -133,6 +133,11 @@
         .fbtn { width: 100%; padding: 18px; border-radius: var(--radius-full); background: var(--blue-500); color: var(--white); border: none; font-weight: 700; font-size: 14px; cursor: pointer; transition: var(--tr); display: flex; align-items: center; justify-content: center; gap: 10px; }
         .fbtn:hover { background: var(--blue-700); transform: translateY(-2px); box-shadow: var(--shadow-blue); }
 
+        .form-success { display: none; text-align: center; padding: 40px 0; }
+        .form-success.active { display: block; animation: logoIn 0.6s var(--ease); }
+        .form-success i { font-size: 3rem; color: var(--blue-500); margin-bottom: 16px; }
+        .form-success h4 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+
         /* FOOTER */
         footer { background: var(--blue-900); color: rgba(255,255,255,0.4); padding: 80px 0 30px; }
         .fgrid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
@@ -256,17 +261,17 @@
             
             <form id="reviewForm">
                 <div class="frow">
-                    <div><label class="flb">Your Name *</label><input type="text" class="fi" placeholder="Full Name" required></div>
-                    <div><label class="flb">Email Address *</label><input type="email" class="fi" placeholder="your@email.com" required></div>
+                    <div><label class="flb">Your Name *</label><input type="text" class="fi" id="rname" placeholder="Full Name" required></div>
+                    <div><label class="flb">Email Address *</label><input type="email" class="fi" id="remail" placeholder="your@email.com" required></div>
                 </div>
                 <div class="frow">
-                    <div><label class="flb">Organization</label><input type="text" class="fi" placeholder="Company / Organization"></div>
-                    <div><label class="flb">Designation</label><input type="text" class="fi" placeholder="Your Role / Title"></div>
+                    <div><label class="flb">Organization</label><input type="text" class="fi" id="rorg" placeholder="Company / Organization"></div>
+                    <div><label class="flb">Designation</label><input type="text" class="fi" id="rdesig" placeholder="Your Role / Title"></div>
                 </div>
                 <div class="frow">
                     <div>
                         <label class="flb">Area of Engagement *</label>
-                        <select class="fi" required>
+                        <select class="fi" id="rarea" required>
                             <option value="">Select...</option>
                             <option>Corporate Training</option>
                             <option>Executive Coaching</option>
@@ -287,10 +292,17 @@
                 </div>
                 <div class="farea">
                     <label class="flb">Your Review *</label>
-                    <textarea class="fi" rows="5" placeholder="Share your experience and the impact it had..." required></textarea>
+                    <textarea class="fi" id="rtext" rows="5" placeholder="Share your experience and the impact it had..." required></textarea>
                 </div>
                 <button type="submit" class="fbtn">Submit Review <i class="fas fa-arrow-right"></i></button>
             </form>
+
+            <div class="form-success" id="reviewSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h4>Review Submitted!</h4>
+                <p>Thank you for sharing your experience. Your review will be visible once verified.</p>
+                <button type="button" class="btn btn-blue" style="margin-top:20px; border:none; padding:12px 28px; border-radius:30px; background:var(--blue-500); color:white; cursor:pointer;" onclick="location.reload()">Send Another</button>
+            </div>
         </div>
     </div>
 </section>
@@ -305,17 +317,17 @@
             </div>
             <div class="fcol">
                 <h6>Connect</h6>
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin" style="margin-right:9px;"></i>LinkedIn</a>
-                <a href="https://wa.me/916300405352" target="_blank"><i class="fab fa-whatsapp" style="margin-right:9px;"></i>WhatsApp</a>
-                <a href="contact.html"><i class="fas fa-envelope" style="margin-right:9px;"></i>Email</a>
+                <a href="https://www.linkedin.com/in/drkc" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" style="margin-right:9px;"></i>LinkedIn</a>
+                <a href="https://wa.me/916300405352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="margin-right:9px;"></i>WhatsApp</a>
+                <a href="mailto:connect@learningwithoutwalls.in?subject=Website%20Inquiry"><i class="fas fa-envelope" style="margin-right:9px;"></i>Email</a>
             </div>
         </div>
         <div class="fbot">
             <p>&copy; 2026 Dr. Krishnan Chandrasekharan. All rights reserved.</p>
             <div class="fsoc">
-                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/916300405352" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="contact.html"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/drkc" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/916300405352" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:connect@learningwithoutwalls.in?subject=Website%20Inquiry"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </div>
@@ -346,9 +358,17 @@
     // FORM
     document.getElementById('reviewForm').addEventListener('submit', e => {
         e.preventDefault();
-        alert('Thank you! Your review has been submitted for moderation.');
-        e.target.reset();
-        stars.forEach(st => st.style.opacity = '1');
+        const name   = document.getElementById('rname').value;
+        const email  = document.getElementById('remail').value;
+        const area   = document.getElementById('rarea').value;
+        const text   = document.getElementById('rtext').value;
+        const subject = `New Review Submission: ${area} — ${name}`;
+        const body    = `Name: ${name}\nEmail: ${email}\nArea: ${area}\n\nReview:\n${text}`;
+        
+        window.open(`mailto:connect@learningwithoutwalls.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`);
+        
+        document.getElementById('reviewForm').style.display = 'none';
+        document.getElementById('reviewSuccess').classList.add('active');
     });
 </script>
 </body>
